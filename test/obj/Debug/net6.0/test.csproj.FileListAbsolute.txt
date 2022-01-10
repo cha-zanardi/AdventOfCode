@@ -1,0 +1,15 @@
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\test.exe
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\test.deps.json
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\test.runtimeconfig.json
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\test.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\ref\test.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\bin\Debug\net6.0\test.pdb
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.csproj.AssemblyReference.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.GeneratedMSBuildEditorConfig.editorconfig
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.AssemblyInfoInputs.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.AssemblyInfo.cs
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.csproj.CoreCompileInputs.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\ref\test.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.pdb
+E:\DOSSIER\Documents\GitHub\AdventOfCode\test\obj\Debug\net6.0\test.genruntimeconfig.cache
