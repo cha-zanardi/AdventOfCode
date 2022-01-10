@@ -1,39 +1,27 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 using System;
 using System.Text.RegularExpressions;
-
-Console.WriteLine("Hello, World!");
+using System.IO;
 
 // DATA
-string[] data = {"00100","11110","10110","10111","10101","01111","00111","11100","10000","11001","00010","01010"};
+string[] data = System.IO.File.ReadAllLines(@"input.txt");
 
-
-// Calculate Gamma and Epsilon
+// Calculate the power consumption
 void calculate(string[] data){
     string gamma = "";
     string epsilon = "";
 
     // loop for the length of a binary number (here 5)
-    for (int i = 0; i < 5; i++){
-        Console.WriteLine("------------ i = " + i + " ------------");
+    for (int i = 0; i < data[0].Length; i++){
 
         int numberOfZero = 0;
         int numberOfOne = 0;
 
         foreach(string line in data){
-            Console.WriteLine("*** LINE = " + line + " ***");
 
-            // search for a number in the string and parse it into an integer
-            //string resultString = Regex.Match(line, @"\d").Value;
-            //int resultStringParsed = Int32.Parse(resultString);
-
-            //Console.WriteLine("resultStringParsed = " + resultStringParsed);
-
-            //int resultString = Char.GetNumericValue(line[i]);
+            // Convert the char into string format
             string resultString = line[i].ToString();
-            Console.WriteLine("resultString = " + resultString);
-
-            
 
             if(resultString == "0"){
                 numberOfZero++;
@@ -44,22 +32,25 @@ void calculate(string[] data){
 
         }
 
-        // more "0"
+        // if more "0", gamma take 0 and epsilon 1
         if(numberOfZero > numberOfOne){
             gamma += "0";
             epsilon += "1";
-            Console.WriteLine("ADDING 0 TO GAMMA");
         }
-        // more "1"
+        // if more "1", gamma take 1 and epsilon 0
         else if(numberOfZero < numberOfOne){
             gamma += "1";
             epsilon += "0";
-            Console.WriteLine("ADDING 1 TO GAMMA");
         }
     }
-    int powerConsumption = 0;
-    //int powerConsumption = gamma * epsilon;
-    Console.WriteLine("gamma = " + gamma + " epsilon = " + epsilon + " powerConsumption = " + powerConsumption );
+    
+    // Convert binary string to decimal
+    int gammaDecimal = Convert.ToInt32(gamma, 2);
+    int epsilonDecimal = Convert.ToInt32(epsilon, 2);
+
+    int powerConsumption = gammaDecimal * epsilonDecimal;
+
+    Console.WriteLine("gammaDecimal = " + gammaDecimal + " epsilonDecimal = " + epsilonDecimal + " powerConsumption = " + powerConsumption );
 }
 
 
