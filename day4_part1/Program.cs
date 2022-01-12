@@ -1,52 +1,53 @@
-﻿
-
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-string inputFile = "inputEx.txt";
-
-
 // DATA
-var data = System.IO.File.ReadAllLines(inputFile);
-
-var dataList = new List<string>(data);
-
-
-// utilisation d'un streamReader pour lire le fichier source
-var bingoDrawnNumbers = "";
+string inputFile = "input.txt";
+var firstLine = "";
 var bingoGrids = "";
+int gridSizes = 5;
+Regex rx = new Regex(@"\d+");
+bool victory = false;
+bingoGrid victoriousbingoGrid = new bingoGrid();
+int lastCalledNumber = 0;
 
-
-// lit la premiere ligne du fichier
+// lit la premiere ligne du fichier et le reste dans un deuxieme temps
 using(StreamReader reader = new StreamReader(inputFile)) {
-    bingoDrawnNumbers = reader.ReadLine() ?? ""; // L’opérateur de fusion null ?? retourne la valeur de l’opérande de gauche si elle n’est pas null
+    firstLine = reader.ReadLine() ?? ""; // L’opérateur de fusion null ?? retourne la valeur de l’opérande de gauche si elle n’est pas null
 
     bingoGrids = reader.ReadToEnd();
 }
 
-Console.WriteLine("bingoDrawnNumbers = " + bingoDrawnNumbers);
-Console.WriteLine("bingoGrids = " + bingoGrids);
+List<int> listDrawnNumbers = new List<int>();
+MatchCollection CollectionDrawnNumbers = rx.Matches(firstLine);
+foreach (Match m in CollectionDrawnNumbers) {
+    listDrawnNumbers.Add(Int32.Parse(m.Value));
+}
 
-int gridSizes = 5;
 
-Regex rx = new Regex(@"\d+");
 MatchCollection matches = rx.Matches(bingoGrids);
-Console.WriteLine("--------------------------");
-Console.WriteLine("matches = " + matches.ToString());
-
-// bingoGrids = Regex.Match(bingoGrids, @"\d+").Value;
-// Console.WriteLine("--------------------------");
-// Console.WriteLine("bingoGrids = " + bingoGrids);
-
 List<bingoGrid> listBingoGrid = initBingoGrids(matches);
 
-Console.WriteLine("--------------------------");
-Console.WriteLine("listBingoGrid = " + listBingoGrid);
 
-foreach (int drawnNumber in bingoDrawnNumbers)
-{
-    
+foreach (int drawnNumber in listDrawnNumbers) {
+    foreach (bingoGrid bg in listBingoGrid) {
+        victory = bg.verifyDraw(drawnNumber);
+        if (victory == true) {
+            victoriousbingoGrid = bg;
+            lastCalledNumber = drawnNumber;
+            break;
+        }
+    }
+    if (victory == true) {
+        break;
+    }
 }
+
+victoriousbingoGrid.calculateFinalScore(lastCalledNumber);
+
+
+
 
 
 
@@ -91,10 +92,20 @@ class bingoGrid {
     private List<List<int>> _bingoGridContent;
     private List<List<int>> _victoryMatrix;
 
+    private bool _victorious;
+
+    public bingoGrid(){
+        this._bingoGridSize = 0;
+        this._bingoGridContent = new List<List<int>>();
+        this._victoryMatrix = new List<List<int>>();
+        this._victorious = false;
+    }
+
     public bingoGrid(int _bingoGridSize, List<List<int>> _bingoGridContent){
         this._bingoGridSize = _bingoGridSize;
         this._bingoGridContent = _bingoGridContent;
         this._victoryMatrix = initVictoryMatrix(_bingoGridSize);
+        this._victorious = false;
     }
     public int bingoGridSize {
         get => _bingoGridSize;
@@ -126,18 +137,84 @@ class bingoGrid {
     }
 
 
-    public void verifyDraw(int drawnNumber, bingoGrid bg){ // see if the drawn number is in the grid
+    public bool verifyDraw(int drawnNumber){ // see if the drawn number is in the grid
 
+        for (int i = 0; i < this.bingoGridContent.Count; i++) {
+            for (int j = 0; j < this.bingoGridContent.Count; j++)
+            {
+                if (this.bingoGridContent[i][j] == drawnNumber) {
+                    this.victoryMatrix[i][j] = 1;
+                    bool victoire = verifyVictory(this.victoryMatrix);
+                    if(victoire == true){
+                        this._victorious = true;
+                        return true;
+                    }
+                }
+                
+            }
+        }
+
+        return false;
     }
 
-    public void verifyVictory(bingoGrid bg){ // verify if the grid is victorious
+    public bool verifyVictory(List<List<int>> victoryMatrix){ // verify if the grid is victorious
+        int counterONE = 0;
 
+        //verification horizontale
+        for (int row = 0; row < this._bingoGridSize; row++) {
+            for (int col = 0; col < this._bingoGridSize; col++) {
+
+                if (this.victoryMatrix[row].Contains(0)) {
+                    counterONE = 0;
+                    break;
+                }
+                else {
+                    counterONE++;
+                    if (counterONE == this._bingoGridSize) {
+                        Console.WriteLine("victory !");
+                        return true;
+                    }
+                }
+                
+            }
+        }
+
+        //verification verticale
+        for(int col = 0; col < this._bingoGridSize; col++) {
+            for (int row = 0; row < this._bingoGridSize; row++) {
+                if (this.victoryMatrix[row][col] != 1) {
+                    counterONE = 0;
+                    break;
+                }
+                else {
+                    counterONE++;
+                    if (counterONE == this._bingoGridSize) {
+                        Console.WriteLine("victory !");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
-    public void printGrid(){ // print the grid
+    public void calculateFinalScore(int lastCalledNumber){
+        int result = 0;
 
+
+        for (int row = 0; row < this._bingoGridSize; row++) {
+            for (int col = 0; col < this._bingoGridSize; col++) {
+
+                if (this.victoryMatrix[row][col] != 1) {
+                    result += this.bingoGridContent[row][col];
+                }
+            }
+        }
+
+        result *= lastCalledNumber;
+
+        Console.WriteLine("The final score is : " + result);
     }
-
 
 }
 
