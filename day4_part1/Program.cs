@@ -43,6 +43,11 @@ List<bingoGrid> listBingoGrid = initBingoGrids(matches);
 Console.WriteLine("--------------------------");
 Console.WriteLine("listBingoGrid = " + listBingoGrid);
 
+foreach (int drawnNumber in bingoDrawnNumbers)
+{
+    
+}
+
 
 
 
@@ -107,7 +112,7 @@ class bingoGrid {
     }
 
 
-    public List<List<int>> initVictoryMatrix(int _bingoGridSize){ // initialize the victory Matrice
+    public List<List<int>> initVictoryMatrix(int _bingoGridSize){ // initialize the victory Matrix
 
         List<List<int>> victoryMatrix = new List<List<int>>();
         for (int i = 0; i < _bingoGridSize; i++){
@@ -115,6 +120,7 @@ class bingoGrid {
             for (int j = 0; j < _bingoGridSize; j++){
                 rangee.Add(0);
             }
+            victoryMatrix.Add(rangee);
         }
         return victoryMatrix;
     }
