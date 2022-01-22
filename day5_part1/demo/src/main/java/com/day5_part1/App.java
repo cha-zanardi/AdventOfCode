@@ -1,6 +1,5 @@
 package com.day5_part1;
 
-import java.io.Console;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,7 +13,7 @@ public class App
 {
     public static void main( String[] args ) throws Exception {
 
-        String inputFile = "inputEx.txt";
+        String inputFile = "input.txt";
         File file = new File("src\\main\\resources\\" + inputFile);
         Scanner sc = new Scanner(file);
 
@@ -41,22 +40,39 @@ public class App
         }
 
 
-        for (Integer m : datalist2) {
-            System.out.print("---");
-            System.out.print(m);
-            System.out.println("---");
-        }
+        // for (Integer m : datalist2) {
+        //     System.out.print("---");
+        //     System.out.print(m);
+        //     System.out.println("---");
+        // }
 
         
 
         Integer matrixSize = matrixSize(datalist2);
         Grid ventsGrid = new Grid(matrixSize);
 
-        
+        System.out.println(ventsGrid.toString());
 
+        ArrayList<Integer> tmpVectors = new ArrayList<Integer>();
 
+        for (int i = 0; i < datalist2.size(); i++) {
+            // System.out.println("---------------------------");
+            // System.out.println("itération où i = " + i);
+            // System.out.println(datalist2.get(i));
+
+            tmpVectors.add(datalist2.get(i));
+
+            if (tmpVectors.size() == 4) {
+                System.out.println("Contenu de tmp = " + tmpVectors.toString());
+                ventsGrid.addVector(tmpVectors);
+                System.out.println(ventsGrid.toString());
+                System.out.println("--- Vidage tmpVector ---");
+                tmpVectors.clear();
+            }
+        }
         
         System.out.print("matrixSize = " + matrixSize);
+        ventsGrid.countOverlaps();
 
         sc.close();
     }
