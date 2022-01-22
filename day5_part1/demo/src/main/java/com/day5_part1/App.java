@@ -16,14 +16,12 @@ public class App
         String inputFile = "input.txt";
         File file = new File("src\\main\\resources\\" + inputFile);
         Scanner sc = new Scanner(file);
-
-        // ArrayList<String> dataList = new ArrayList<String>();
         String dataList = new String();
     
         while (sc.hasNextLine()) {
-            // dataList.add(sc.nextLine());
             dataList += " " + sc.nextLine();
         }
+
         if (dataList.isEmpty()) {
             System.out.println("dataList est vide");
         }
@@ -51,7 +49,7 @@ public class App
         Integer matrixSize = matrixSize(datalist2);
         Grid ventsGrid = new Grid(matrixSize);
 
-        System.out.println(ventsGrid.toString());
+        // System.out.println(ventsGrid.toString());
 
         ArrayList<Integer> tmpVectors = new ArrayList<Integer>();
 
