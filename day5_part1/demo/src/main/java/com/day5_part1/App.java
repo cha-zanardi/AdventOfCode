@@ -13,6 +13,7 @@ public class App
 {
     public static void main( String[] args ) throws Exception {
 
+        // String inputFile = "inputEX.txt";
         String inputFile = "input.txt";
         File file = new File("src\\main\\resources\\" + inputFile);
         Scanner sc = new Scanner(file);
@@ -63,13 +64,13 @@ public class App
             if (tmpVectors.size() == 4) {
                 System.out.println("Contenu de tmp = " + tmpVectors.toString());
                 ventsGrid.addVector(tmpVectors);
-                System.out.println(ventsGrid.toString());
+                // System.out.println(ventsGrid.toString());
                 System.out.println("--- Vidage tmpVector ---");
                 tmpVectors.clear();
             }
         }
         
-        System.out.print("matrixSize = " + matrixSize);
+        System.out.println("matrixSize = " + matrixSize);
         ventsGrid.countOverlaps();
 
         sc.close();
