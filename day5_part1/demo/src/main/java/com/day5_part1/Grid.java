@@ -67,34 +67,54 @@ public class Grid {
         y2 = vectors.get(3);
 
         if (x1 == x2) {
+            System.out.println("X1 = " + x1);
+            System.out.println("X2 = " + x2);
             int j = x1;
 
             if (y1 < y2) {
+                System.out.println("** Y1 = " + y1);
+                System.out.println("** Y2 = " + y2);
                 for (int i = y1; i <= y2; i++) {
                     int increment = this._matrixContent.get(i).get(j) + 1;
+                    System.out.println("this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                     this._matrixContent.get(i).set(j, increment);
+                    System.out.println("increment = " + increment);
+                    System.out.println("after this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                 }
             }
             else{
                 for (int i = y2; i <= y1; i++) {
                     int increment = this._matrixContent.get(i).get(j) + 1;
+                    System.out.println("this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                     this._matrixContent.get(i).set(j, increment);
+                    System.out.println("increment = " + increment);
+                    System.out.println("after this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                 }
             }
         }
         else if (y1 == y2) {
+            System.out.println("Y1 = " + y1);
+            System.out.println("Y2 = " + y2);
             int i = y1;
 
             if (x1 < x2) {
+                System.out.println("** X1 = " + x1);
+                System.out.println("** X2 = " + x2);
                 for (int j = x1; j <= x2; j++) {
                     int increment = this._matrixContent.get(i).get(j) + 1;
+                    System.out.println("this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                     this._matrixContent.get(i).set(j, increment);
+                    System.out.println("increment = " + increment);
+                    System.out.println("after this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                 }
             }
             else{
                 for (int j = x2; j <= x1; j++) {
                     int increment = this._matrixContent.get(i).get(j) + 1;
+                    System.out.println("this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                     this._matrixContent.get(i).set(j, increment);
+                    System.out.println("increment = " + increment);
+                    System.out.println("after this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                 }
             }
         }
@@ -105,6 +125,7 @@ public class Grid {
         for (int i = 0; i < this._matrixSize; i++) {
             for (int j = 0; j < this._matrixSize; j++) {
                 if (this._matrixContent.get(i).get(j) >= 2) {
+                    System.out.println("this._matrixContent.get(i).get(j) = " + this._matrixContent.get(i).get(j));
                     overlaps++;
                 }
             }

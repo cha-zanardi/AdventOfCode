@@ -13,8 +13,8 @@ public class App
 {
     public static void main( String[] args ) throws Exception {
 
-        // String inputFile = "inputEX.txt";
         String inputFile = "input.txt";
+        // String inputFile = "input.txt";
         File file = new File("src\\main\\resources\\" + inputFile);
         Scanner sc = new Scanner(file);
         String dataList = new String();
@@ -26,6 +26,7 @@ public class App
         if (dataList.isEmpty()) {
             System.out.println("dataList est vide");
         }
+        sc.close();
 
         Pattern regex = Pattern.compile("\\d+");
         Matcher matcher = regex.matcher(dataList);
@@ -39,11 +40,11 @@ public class App
         }
 
 
-        // for (Integer m : datalist2) {
-        //     System.out.print("---");
-        //     System.out.print(m);
-        //     System.out.println("---");
-        // }
+        for (Integer m : datalist2) {
+            System.out.print("---");
+            System.out.print(m);
+            System.out.println("---");
+        }
 
         
 
@@ -73,7 +74,7 @@ public class App
         System.out.println("matrixSize = " + matrixSize);
         ventsGrid.countOverlaps();
 
-        sc.close();
+        
     }
 
     public static Integer matrixSize(ArrayList<Integer> dataList){
