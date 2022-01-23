@@ -68,6 +68,8 @@ int getMatrixSize(List<int> dataList){
             biggestNum = num;
         }
     }
+    
+    biggestNum++;
 
     return biggestNum;
 }

@@ -1,0 +1,15 @@
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\day5_part1C.exe
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\day5_part1C.deps.json
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\day5_part1C.runtimeconfig.json
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\day5_part1C.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\ref\day5_part1C.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\bin\Debug\net6.0\day5_part1C.pdb
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.csproj.AssemblyReference.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.GeneratedMSBuildEditorConfig.editorconfig
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.AssemblyInfoInputs.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.AssemblyInfo.cs
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.csproj.CoreCompileInputs.cache
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\ref\day5_part1C.dll
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.pdb
+E:\DOSSIER\Documents\GitHub\AdventOfCode\day5_part1C\obj\Debug\net6.0\day5_part1C.genruntimeconfig.cache
