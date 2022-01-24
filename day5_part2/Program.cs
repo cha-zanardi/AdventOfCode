@@ -19,7 +19,7 @@ foreach (Match m in CollectionlistNumbers) {
 }
 
 
-int matrixSize = 1000;
+int matrixSize = getMatrixSize(listNumbers);
 Grid ventsGrid = new Grid(matrixSize);
 
 
@@ -34,7 +34,7 @@ foreach (int num in listNumbers) {
     if (tmpVectors.Count() == 4) {
  
         ventsGrid.addVector(tmpVectors);
-
+        // Console.WriteLine(ventsGrid.toString());
         tmpVectors.Clear();
     }
 }

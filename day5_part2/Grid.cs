@@ -97,8 +97,42 @@ public class Grid {
                 }
             }
         }
-        else{
 
+
+
+        else if ((x1 < x2) && (y1 > y2)) {
+                int i = y1;
+            for (int j = x1; j <= x2; j++) {//un seul for
+                int increment = this._matrixContent.ElementAt(i).ElementAt(j) + 1;
+                this._matrixContent.ElementAt(i)[j] = increment;
+                i--;
+            }
+        }
+        else if ((x1 > x2) && (y1 < y2)) {
+                int i = y1;
+            for (int j = x1; j >= x2; j--) {
+                int increment = this._matrixContent.ElementAt(i).ElementAt(j) + 1;
+                this._matrixContent.ElementAt(i)[j] = increment;
+                i++;
+            }
+        }
+
+
+        else if ((x1 < x2) && (y1 < y2)) {
+                int i = y1;
+            for (int j = x1; j <= x2; j++) {
+                int increment = this._matrixContent.ElementAt(i).ElementAt(j) + 1;
+                this._matrixContent.ElementAt(i)[j] = increment;
+                i++;
+            }
+        }
+        else if ((x1 > x2) && (y1 > y2)) {
+                int i = y2;
+            for (int j = x2; j <= x1; j++) {
+                int increment = this._matrixContent.ElementAt(i).ElementAt(j) + 1;
+                this._matrixContent.ElementAt(i)[j] = increment;
+                i++;
+            }
         }
     }
 
